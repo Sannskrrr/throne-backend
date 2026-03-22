@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[phases.install]
+cmds = ["pip install --prefer-binary flask flask-cors gunicorn scikit-learn numpy"]
+
+[start]
+cmd = "gunicorn app_v7:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120"
